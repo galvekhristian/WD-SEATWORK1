@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apple-Inspired Showcase</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #000;
+      overflow-x: hidden;
+    }
+    header, footer {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 10px;
+      background: #f8f8f8;
+      flex-wrap: wrap;
+    }
+    .nav-item, .footer-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #555;
+      font-size: 12px;
+      width: 60px;
+      transition: 0.3s;
+    }
+    .nav-item img, .footer-item img {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 4px;
+      filter: grayscale(1);
+      opacity: 0.6;
+      transition: 0.3s;
+    }
+    .nav-item:hover img, .footer-item:hover img {
+      filter: none;
+      opacity: 1;
+    }
+    .section {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      min-height: 80vh;
+      text-align: center;
+    }
+    .section.active { display: flex; }
+    .logo { width: 80px; margin-bottom: 20px; }
+    h1 { font-size: 32px; margin-bottom: 10px; }
+    p { font-size: 16px; color: #555; margin-bottom: 30px; max-width: 600px; }
+    button {
+      padding: 12px 30px;
+      border-radius: 25px;
+      border: none;
+      background-color: #0071e3;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+    .thumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .thumbnails img {
+      width: 100px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .thumbnails img:hover {
+      transform: scale(1.05);
+    }
+    .pagination {
+      margin-top: 30px;
+      display: flex;
+      gap: 10px;
+    }
+    .pagination button {
+      background-color: #0071e3;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .pagination button:hover {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="nav-item" href="#" onclick="navigate('mac')"><img src="https://img.icons8.com/ios-filled/50/macbook.png"/><span>Mac</span></a>
+  <a class="nav-item" href="#" onclick="navigate('iphone')"><img src="https://img.icons8.com/ios-filled/50/iphone.png"/><span>iPhone</span></a>
+  <a class="nav-item" href="#" onclick="navigate('ipad')"><img src="https://img.icons8.com/ios-filled/50/ipad.png"/><span>iPad</span></a>
+  <a class="nav-item" href="#" onclick="navigate('watch')"><img src="https://img.icons8.com/ios-filled/50/apple-watch.png"/><span>Watch</span></a>
+  <a class="nav-item" href="#" onclick="navigate('airpods')"><img src="https://img.icons8.com/ios-filled/50/airpods-pro.png"/><span>AirPods</span></a>
+</header>
+
+<div id="landing" class="section active">
+  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo"/>
+  <h1>Welcome to the Apple Showcase</h1>
+  <p>Explore the latest Apple devices in a clean interface. Click below to begin.</p>
+  <button onclick="navigate('mac')">Enter Site</button>
+</div>
+
+<div id="mac" class="section">
+  <h1>Mac</h1>
+  <p>Discover MacBook Air, MacBook Pro, and iMac – built for performance.</p>
+  <div class="hero">
+    <img src="https://www.apple.com/v/mac/home/bs/images/overview/hero/macbook_air__d15g56n4m0uq_large.jpg"/>
+  </div>
+  <div class="thumbnails">
+    <img src="https://www.apple.com/v/mac/home/bs/images/overview/hero/imac_24__f5ok2n3l3mya_large.jpg"/>
+    <img src="https://www.apple.com/v/mac/home/bs/images/overview/hero/macbook_pro__bpt7a8f25eoi_large.jpg"/>
+  </div>
+  <div class="pagination">
+    <button onclick="navigate('iphone')">Next →</button>
+  </div>
+</div>
+
+<div id="iphone" class="section">
+  <h1>iPhone</h1>
+  <p>Experience the new iPhone 15 Pro – light, powerful, and pro in every way.</p>
+  <div class="hero">
+    <img src="https://www.apple.com/v/iphone/home/bs/images/overview/hero/iphone_15_pro__e5xbgo5ffhg2_large.jpg"/>
+  </div>
+  <div class="thumbnails">
+    <img src="https://www.apple.com/v/iphone/home/bs/images/overview/hero/iphone_15_colors__dhnsegysa3iq_large.jpg"/>
+    <img src="https://www.apple.com/v/iphone/home/bs/images/overview/hero/ios17__emvaw5n6u76i_large.jpg"/>
+  </div>
+  <div class="pagination">
+    <button onclick="navigate('mac')">← Back</button>
+    <button onclick="navigate('ipad')">Next →</button>
+  </div>
+</div>
+
+<div id="ipad" class="section">
+  <h1>iPad</h1>
+  <p>iPad Pro, iPad Air, and iPad Mini – choose what fits your creativity.</p>
+  <div class="hero">
+    <img src="https://www.apple.com/v/ipad/home/cd/images/overview/hero/ipad_pro__enfwbz2bagae_large.jpg"/>
+  </div>
+  <div class="thumbnails">
+    <img src="https://www.apple.com/v/ipad/home/cd/images/overview/hero/ipad_air__2rdxg40h8r6u_large.jpg"/>
+    <img src="https://www.apple.com/v/ipad/home/cd/images/overview/hero/ipad_mini__fh6jyn8bh1eq_large.jpg"/>
+  </div>
+  <div class="pagination">
+    <button onclick="navigate('iphone')">← Back</button>
+    <button onclick="navigate('watch')">Next →</button>
+  </div>
+</div>
+
+<div id="watch" class="section">
+  <h1>Apple Watch</h1>
+  <p>Series 9 and Ultra: advanced health, connectivity, and durability on your wrist.</p>
+  <div class="hero">
+    <img src="https://www.apple.com/v/apple-watch-series-9/b/images/overview/hero/hero__gnfk5g59t0qe_large.jpg"/>
+  </div>
+  <div class="thumbnails">
+    <img src="https://www.apple.com/v/apple-watch-series-9/b/images/overview/hero/s9__dn6npl3y8j0i_large.jpg"/>
+  </div>
+  <div class="pagination">
+    <button onclick="navigate('ipad')">← Back</button>
+    <button onclick="navigate('airpods')">Next →</button>
+  </div>
+</div>
+
+<div id="airpods" class="section">
+  <h1>AirPods</h1>
+  <p>AirPods Pro with Adaptive Audio — immersive sound, wireless freedom.</p>
+  <div class="hero">
+    <img src="https://www.apple.com/v/airpods/home/ab/images/overview/airpods_pro_2nd_gen__ganfh1ka3tua_large.jpg"/>
+  </div>
+  <div class="thumbnails">
+    <img src="https://www.apple.com/v/airpods/home/ab/images/overview/airpods_compare__f5s5t0jcl1ue_large.jpg"/>
+  </div>
+  <div class="pagination">
+    <button onclick="navigate('watch')">← Back</button>
+    <button onclick="navigate('landing')">↺ Home</button>
+  </div>
+</div>
+
+<footer>
+  <a class="footer-item" href="#"><img src="https://img.icons8.com/ios-filled/50/privacy-policy.png"/><span>Privacy</span></a>
+  <a class="footer-item" href="#"><img src="https://img.icons8.com/ios-filled/50/terms-of-service.png"/><span>Terms</span></a>
+  <a class="footer-item" href="#"><img src="https://img.icons8.com/ios-filled/50/headset.png"/><span>Support</span></a>
+  <a class="footer-item" href="#"><img src="https://img.icons8.com/ios-filled/50/phone.png"/><span>Contact</span></a>
+  <a class="footer-item" href="#"><img src="https://img.icons8.com/ios-filled/50/career.png"/><span>Careers</span></a>
+</footer>
+
+<script>
+  function navigate(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
+
