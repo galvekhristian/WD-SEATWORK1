@@ -59,18 +59,12 @@
 <!-- The following are just sample -->
 Showcasing 5 styles of header and footer.
 
-Guiding Question:
-- What is the project
-- Whats the purpose
-- What are key components
-- What technology used and how it is used
+
 
 ### Key Components
 <!-- TODO: List of Key Components -->
 <!-- The following are just sample -->
-- MultiPage Website/Single Page Website
-- Parallax transition
-- Transactional
+-Single Page Website
 
 ### Technology
 <!-- TODO: List of Technology Used -->
@@ -117,6 +111,6 @@ WD-ProjectName
 <!-- TODO: Add References -->
 | Title | Purpose | Link |
 |-|-|-|
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | Apple-Inspired Showcase |
-
+| Apple-Inspired Showcase | Showcasing an Inspired Apple website showing different types of headers and footers | https://galvekhristian.github.io/WD-SEATWORK1/
+ |
 
