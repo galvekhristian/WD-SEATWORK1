@@ -11,36 +11,31 @@
       background: #fff;
       color: #000;
       overflow-x: hidden;
+      transition: all 0.3s ease-in-out;
     }
     header, footer {
       display: flex;
       justify-content: center;
       gap: 30px;
       padding: 15px 10px;
-      background: #f8f8f8;
       flex-wrap: wrap;
+      transition: all 0.3s ease;
     }
     .nav-item, .footer-item {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-decoration: none;
-      color: #555;
       font-size: 12px;
       width: 60px;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
     .nav-item img, .footer-item img {
       width: 28px;
       height: 28px;
       margin-bottom: 4px;
-      filter: grayscale(1);
-      opacity: 0.6;
-      transition: 0.3s;
-    }
-    .nav-item:hover img, .footer-item:hover img {
-      filter: none;
-      opacity: 1;
+      transition: all 0.3s ease;
     }
     .section {
       display: none;
@@ -50,19 +45,29 @@
       padding: 60px 20px;
       min-height: 80vh;
       text-align: center;
+      animation: fadeIn 0.5s ease;
     }
     .section.active { display: flex; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     .logo { width: 80px; margin-bottom: 20px; }
     h1 { font-size: 32px; margin-bottom: 10px; }
-    p { font-size: 16px; color: #555; margin-bottom: 30px; max-width: 600px; }
+    p { font-size: 16px; margin-bottom: 30px; max-width: 600px; }
     button {
-      padding: 12px 30px;
+      padding: 10px 20px;
       border-radius: 25px;
       border: none;
       background-color: #0071e3;
-      color: #fff;
-      font-size: 16px;
+      color: white;
+      font-size: 14px;
+      margin: 5px;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #005bb5;
     }
     .hero img {
       max-width: 100%;
@@ -91,60 +96,124 @@
       display: flex;
       gap: 10px;
     }
-    .pagination button {
-      background-color: #0071e3;
-      color: #fff;
-      border: none;
-      border-radius: 20px;
-      padding: 10px 20px;
-      cursor: pointer;
+
+    /* Style Themes */
+    .style-1 header, .style-1 footer {
+      background-color: #f8f8f8;
     }
-    .pagination button:hover {
-      background-color: #005bb5;
+    .style-1 .nav-item span, .style-1 .footer-item span {
+      color: #555;
+    }
+    .style-1 img { filter: grayscale(1); opacity: 0.6; }
+    .style-1 .nav-item:hover img, .style-1 .footer-item:hover img {
+      filter: none; opacity: 1;
+    }
+
+    .style-2 {
+      font-family: 'Courier New', monospace;
+    }
+    .style-2 header, .style-2 footer {
+      background-color: #222;
+    }
+    .style-2 .nav-item span, .style-2 .footer-item span {
+      color: #0f0;
+    }
+    .style-2 img { filter: none; opacity: 0.9; }
+    .style-2 .nav-item:hover img, .style-2 .footer-item:hover img {
+      transform: rotate(10deg);
+    }
+
+    .style-3 {
+      font-family: 'Comic Sans MS', cursive;
+    }
+    .style-3 header, .style-3 footer {
+      background-color: #ffeff0;
+    }
+    .style-3 .nav-item span, .style-3 .footer-item span {
+      color: #e60073;
+    }
+    .style-3 img { filter: hue-rotate(45deg); }
+    .style-3 .nav-item:hover img, .style-3 .footer-item:hover img {
+      transform: scale(1.2);
+    }
+
+    .style-4 {
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .style-4 header, .style-4 footer {
+      background-color: #001f3f;
+    }
+    .style-4 .nav-item span, .style-4 .footer-item span {
+      color: #7FDBFF;
+    }
+    .style-4 img { filter: brightness(1.2); }
+    .style-4 .nav-item:hover img, .style-4 .footer-item:hover img {
+      transform: translateY(-3px);
+    }
+
+    .style-5 {
+      font-family: 'Georgia', serif;
+    }
+    .style-5 header, .style-5 footer {
+      background-color: #faf3e0;
+    }
+    .style-5 .nav-item span, .style-5 .footer-item span {
+      color: #8B4513;
+    }
+    .style-5 img { opacity: 0.7; }
+    .style-5 .nav-item:hover img, .style-5 .footer-item:hover img {
+      opacity: 1; filter: drop-shadow(0 0 2px #000);
+    }
+
+    .style-switcher {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
     }
   </style>
 </head>
-<body>
+<body class="style-1">
+
+<div class="style-switcher">
+  <button onclick="setStyle(1)">Style 1</button>
+  <button onclick="setStyle(2)">Style 2</button>
+  <button onclick="setStyle(3)">Style 3</button>
+  <button onclick="setStyle(4)">Style 4</button>
+  <button onclick="setStyle(5)">Style 5</button>
+</div>
 
 <header>
-  <a class="nav-item" href="#" onclick="navigate('mac')"><img src="https://img.icons8.com/ios-filled/50/macbook.png"/><span>Mac</span></a>
-  <a class="nav-item" href="#" onclick="navigate('iphone')"><img src="https://img.icons8.com/ios-filled/50/iphone.png"/><span>iPhone</span></a>
-  <a class="nav-item" href="#" onclick="navigate('ipad')"><img src="https://img.icons8.com/ios-filled/50/ipad.png"/><span>iPad</span></a>
-  <a class="nav-item" href="#" onclick="navigate('watch')"><img src="https://img.icons8.com/ios-filled/50/apple-watch.png"/><span>Watch</span></a>
-  <a class="nav-item" href="#" onclick="navigate('airpods')"><img src="https://img.icons8.com/ios-filled/50/airpods-pro.png"/><span>AirPods</span></a>
+  <a class="nav-item" onclick="navigate('mac')"><img src="https://img.icons8.com/ios-filled/50/macbook.png"/><span>Mac</span></a>
+  <a class="nav-item" onclick="navigate('iphone')"><img src="https://img.icons8.com/ios-filled/50/iphone.png"/><span>iPhone</span></a>
+  <a class="nav-item" onclick="navigate('ipad')"><img src="https://img.icons8.com/ios-filled/50/ipad.png"/><span>iPad</span></a>
+  <a class="nav-item" onclick="navigate('watch')"><img src="https://img.icons8.com/ios-filled/50/apple-watch.png"/><span>Watch</span></a>
+  <a class="nav-item" onclick="navigate('airpods')"><img src="https://img.icons8.com/ios-filled/50/airpods-pro.png"/><span>AirPods</span></a>
 </header>
 
 <div id="landing" class="section active">
   <img class="logo" src="https://pin.it/7Gm61a2nC" alt="Logo"/>
   <h1>GALVE-TC05</h1>
-  <p>This showcase my skill in HTML and CSS by presenting different types of headers and footers. Click below to begin.</p>
+  <p>This showcases my skills in HTML and CSS. Click below to begin.</p>
   <button onclick="navigate('mac')">Enter Site</button>
 </div>
 
+<!-- Mac -->
 <div id="mac" class="section">
   <h1>Mac</h1>
   <p>Discover MacBook Air, MacBook Pro, and iMac – built for performance.</p>
   <div class="hero">
     <img src="https://www.apple.com/v/mac/home/bs/images/overview/hero/macbook_air__d15g56n4m0uq_large.jpg"/>
   </div>
-  <div class="thumbnails">
-    <img src="https://www.apple.com/v/mac/home/bs/images/overview/hero/imac_24__f5ok2n3l3mya_large.jpg"/>
-    <img src="https://www.apple.com/v/mac/home/bs/images/overview/hero/macbook_pro__bpt7a8f25eoi_large.jpg"/>
-  </div>
-  <div class="pagination">
-    <button onclick="navigate('iphone')">Next →</button>
-  </div>
+  <div class="pagination"><button onclick="navigate('iphone')">Next →</button></div>
 </div>
 
+<!-- iPhone -->
 <div id="iphone" class="section">
   <h1>iPhone</h1>
   <p>Experience the new iPhone 15 Pro – light, powerful, and pro in every way.</p>
   <div class="hero">
     <img src="https://www.apple.com/v/iphone/home/bs/images/overview/hero/iphone_15_pro__e5xbgo5ffhg2_large.jpg"/>
-  </div>
-  <div class="thumbnails">
-    <img src="https://www.apple.com/v/iphone/home/bs/images/overview/hero/iphone_15_colors__dhnsegysa3iq_large.jpg"/>
-    <img src="https://www.apple.com/v/iphone/home/bs/images/overview/hero/ios17__emvaw5n6u76i_large.jpg"/>
   </div>
   <div class="pagination">
     <button onclick="navigate('mac')">← Back</button>
@@ -152,15 +221,12 @@
   </div>
 </div>
 
+<!-- iPad -->
 <div id="ipad" class="section">
   <h1>iPad</h1>
   <p>iPad Pro, iPad Air, and iPad Mini – choose what fits your creativity.</p>
   <div class="hero">
     <img src="https://www.apple.com/v/ipad/home/cd/images/overview/hero/ipad_pro__enfwbz2bagae_large.jpg"/>
-  </div>
-  <div class="thumbnails">
-    <img src="https://www.apple.com/v/ipad/home/cd/images/overview/hero/ipad_air__2rdxg40h8r6u_large.jpg"/>
-    <img src="https://www.apple.com/v/ipad/home/cd/images/overview/hero/ipad_mini__fh6jyn8bh1eq_large.jpg"/>
   </div>
   <div class="pagination">
     <button onclick="navigate('iphone')">← Back</button>
@@ -168,14 +234,12 @@
   </div>
 </div>
 
+<!-- Watch -->
 <div id="watch" class="section">
   <h1>Apple Watch</h1>
   <p>Series 9 and Ultra: advanced health, connectivity, and durability on your wrist.</p>
   <div class="hero">
     <img src="https://www.apple.com/v/apple-watch-series-9/b/images/overview/hero/hero__gnfk5g59t0qe_large.jpg"/>
-  </div>
-  <div class="thumbnails">
-    <img src="https://www.apple.com/v/apple-watch-series-9/b/images/overview/hero/s9__dn6npl3y8j0i_large.jpg"/>
   </div>
   <div class="pagination">
     <button onclick="navigate('ipad')">← Back</button>
@@ -183,14 +247,12 @@
   </div>
 </div>
 
+<!-- AirPods -->
 <div id="airpods" class="section">
   <h1>AirPods</h1>
   <p>AirPods Pro with Adaptive Audio — immersive sound, wireless freedom.</p>
   <div class="hero">
     <img src="https://www.apple.com/v/airpods/home/ab/images/overview/airpods_pro_2nd_gen__ganfh1ka3tua_large.jpg"/>
-  </div>
-  <div class="thumbnails">
-    <img src="https://www.apple.com/v/airpods/home/ab/images/overview/airpods_compare__f5s5t0jcl1ue_large.jpg"/>
   </div>
   <div class="pagination">
     <button onclick="navigate('watch')">← Back</button>
@@ -199,11 +261,11 @@
 </div>
 
 <footer>
-  <a class="footer-item" href="#"><img src="https://img.icons8.com/ios-filled/50/privacy-policy.png"/><span>Privacy</span></a>
-  <a class="footer-item" href="#"><img src="https://img.icons8.com/ios-filled/50/terms-of-service.png"/><span>Terms</span></a>
-  <a class="footer-item" href="#"><img src="https://img.icons8.com/ios-filled/50/headset.png"/><span>Support</span></a>
-  <a class="footer-item" href="#"><img src="https://img.icons8.com/ios-filled/50/phone.png"/><span>Contact</span></a>
-  <a class="footer-item" href="#"><img src="https://img.icons8.com/ios-filled/50/career.png"/><span>Careers</span></a>
+  <a class="footer-item"><img src="https://img.icons8.com/ios-filled/50/privacy-policy.png"/><span>Privacy</span></a>
+  <a class="footer-item"><img src="https://img.icons8.com/ios-filled/50/terms-of-service.png"/><span>Terms</span></a>
+  <a class="footer-item"><img src="https://img.icons8.com/ios-filled/50/headset.png"/><span>Support</span></a>
+  <a class="footer-item"><img src="https://img.icons8.com/ios-filled/50/phone.png"/><span>Contact</span></a>
+  <a class="footer-item"><img src="https://img.icons8.com/ios-filled/50/career.png"/><span>Careers</span></a>
 </footer>
 
 <script>
@@ -211,8 +273,12 @@
     document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
   }
+
+  function setStyle(styleNum) {
+    document.body.className = 'style-' + styleNum;
+  }
 </script>
 
 </body>
 </html>
-
+Write to Kash
