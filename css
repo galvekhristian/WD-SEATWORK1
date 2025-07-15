@@ -1,1 +1,158 @@
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h1.section-title {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+
+
+.header-1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #333;
+  color: white;
+}
+.header-1 nav a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+.header-2 .top-bar {
+  background: #444;
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+}
+.header-2 .main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #222;
+}
+.header-2 nav a {
+  margin-left: 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.header-3 .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #1e1e1e;
+  color: white;
+}
+.header-3 .logo-img {
+  height: 40px;
+}
+.header-3 button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+}
+.header-3 .primary {
+  background: #00bcd4;
+  color: white;
+  border: none;
+}
+
+.header-4 {
+  text-align: center;
+  background: #eee;
+  padding: 1rem;
+}
+.header-4 .center-logo {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.header-4 .center-nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.header-5 {
+  display: flex;
+  height: 100px;
+  background: #222;
+  color: white;
+}
+.header-5 .side-logo {
+  width: 100px;
+  background: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-5 .vertical-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+
+
+.footer-1 {
+  text-align: center;
+  padding: 1rem;
+  background: #111;
+  color: white;
+}
+
+.footer-2 {
+  background: #222;
+  color: white;
+  padding: 2rem;
+}
+.footer-2 .footer-grid {
+  display: flex;
+  justify-content: space-around;
+}
+.footer-2 a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.footer-3 {
+  background: #f4f4f4;
+  padding: 2rem;
+  text-align: center;
+}
+.footer-3 input[type="email"] {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+.footer-3 button {
+  padding: 0.5rem 1rem;
+}
+
+.footer-4 {
+  background: #1a1a1a;
+  text-align: center;
+  padding: 1rem;
+}
+.footer-4 .footer-social a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+.footer-5 {
+  background: #000;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+}
+
